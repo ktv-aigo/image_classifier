@@ -6,10 +6,10 @@ class DataLoader:
     def __init__(self, preprocessor=None):
         self.preprocessor = preprocessor
 
-    def load(self, path):
+    def load(self, path, size):
         entries = os.listdir(path)
         data, label = [], []
-        for i in entries[:20]:
+        for i in entries[:size]:
             img = cv2.imread(path+'/'+i)
             img = self.preprocessor.process(img)
             data.append(img)
